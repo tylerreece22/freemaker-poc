@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TemplateController {
 
     @GetMapping("/template")
-    public String init(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+    public String init(Model model) {
         model.addAttribute("name", "Tyler");
         return "template";
     }
