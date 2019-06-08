@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/id-card")
+@RequestMapping("/template")
 public class TemplateController {
 
     @Autowired
