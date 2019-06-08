@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/id-card")
-public class IdCardController {
+public class TemplateController {
 
     @Autowired
     Configuration config;
