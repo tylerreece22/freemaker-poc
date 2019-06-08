@@ -3,3 +3,6 @@ spring:
     suffix: .html
     template-loader-path: classpath:/templates/
     cache: true
+  mvc:
+    pathmatch:
+      use-suffix-pattern: false

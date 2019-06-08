@@ -1,6 +1,7 @@
 package com.freemarker.poc.controller;
 
 import com.freemarker.poc.dto.IdCard;
+import com.freemarker.poc.service.TemplateService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -19,6 +20,9 @@ public class TemplateController {
     @Autowired
     Configuration config;
 
+    @Autowired
+    TemplateService templateService;
+
     @GetMapping("/test")
     public String object() throws IOException, TemplateException {
         Map<String, Object> model = new HashMap<>();
@@ -32,7 +36,7 @@ public class TemplateController {
     }
 
     @PostMapping("/create")
-    public String createIdCard(@RequestBody IdCard idCard) throws IOException, TemplateException {
+    public String createTemplateString(@RequestBody IdCard idCard) throws IOException, TemplateException {
         Map<String, Object> model = new HashMap<>();
         model.put("userName", idCard.getUserName());
         model.put("userId", idCard.getUserId());
@@ -41,5 +45,10 @@ public class TemplateController {
         template.process(model, stringWriter);
         String string = stringWriter.toString();
         return string;
+    }
+
+    @PostMapping("/create-id-card")
+    public String createIdCard(@RequestBody IdCard idCard) throws IOException, TemplateException {
+        return templateService.createIdCard(idCard);
     }
 }
