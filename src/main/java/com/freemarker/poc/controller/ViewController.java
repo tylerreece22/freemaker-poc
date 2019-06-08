@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class TemplateController {
+public class ViewController {
 
     @GetMapping("/template")
     public String init(Model model) {
-        model.addAttribute("name", "Tyler");
+        model.addAttribute("userName", "user9999");
+        model.addAttribute("userId", "U9999");
         return "template";
     }
 }
