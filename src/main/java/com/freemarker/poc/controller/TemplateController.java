@@ -13,6 +13,7 @@ import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+//For rendering template HTML strings to be rendered
 @RestController
 @RequestMapping("/template")
 public class TemplateController {

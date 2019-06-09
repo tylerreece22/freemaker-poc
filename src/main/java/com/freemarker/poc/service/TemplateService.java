@@ -35,6 +35,9 @@ public class TemplateService {
         String html = stringWriter.toString();
 
         JLabel label = new JLabel(html);
+        // Pay close attention to how odd the difference in size is between this label rendering and
+        // the height and width in the HTML. Could be from the jpeg losing some pixels somewhere or
+        // it could just be yet another weird intricacy of rendering with JLabel
         label.setSize(290, 174);
 
         BufferedImage image = new BufferedImage(
@@ -46,7 +49,7 @@ public class TemplateService {
         label.paint(g);
         g.dispose();
 
-        // get the byte array of the image (as jpeg)
+        // get the byte array of the image
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ImageIO.write(image, "png", baos);
         ImageIO.write(image, "png", new File("test.png"));
